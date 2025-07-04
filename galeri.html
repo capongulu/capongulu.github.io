@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeri</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-nil-light {
+      background-color: #E0F0EC;
+    }
+    .text-nil {
+      color: #54B09E;
+    }
+  </style>
+</head>
+<body class="bg-nil-light text-gray-900 min-h-screen flex flex-col">
+  <header class="text-center mt-10 mb-6">
+    <h1 class="text-3xl font-bold text-nil">🌺 Galeri</h1>
+    <p class="text-nil">Belki ileride anılarla burayı birelştiririm de bu galeri kısmına daha çok foto atmayı düşünüyom.</p>
+  </header>
+  <main class="max-w-5xl mx-auto px-6 pb-16 flex-grow grid grid-cols-1 md:grid-cols-3 gap-6">
+    <img src="./images/maymus.jpeg" alt="Fotoğraf 1" class="rounded-3xl shadow-lg object-cover w-full h-64" />
+    <img src="./images/bebeler.jpeg" alt="Fotoğraf 2" class="rounded-3xl shadow-lg object-cover w-full h-64" />
+    <img src="./images/kekouq.jpeg" alt="Fotoğraf 3" class="rounded-3xl shadow-lg object-cover w-full h-64" />
+    <img src="./images/teip.jpeg" alt="Fotoğraf 4" class="rounded-3xl shadow-lg object-cover w-full h-64" />
+
+  </main>
+  <footer class="text-center pb-10">
+    <a href="index.html" class="inline-block px-6 py-2 bg-white text-nil rounded-full font-semibold shadow-md hover:bg-[#74C3B2] transition">← Geri Dön</a>
+  </footer>
+</body>
+</html>

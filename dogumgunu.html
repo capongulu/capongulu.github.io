@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doğum Günü Kartı</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #54B09E 0%, #2B5E53 100%);
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: #2F6F61;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      background: rgba(84,176,158,0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+
+    .back-button {
+      background: white;
+      color: #54B09E;
+      font-weight: 600;
+      border-radius: 9999px;
+      padding: 0.6rem 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      font-size: 1rem;
+      margin-right: auto;
+      flex-shrink: 0;
+    }
+    .back-button:hover {
+      background-color: #74C3B2;
+      color: white;
+    }
+
+    h1 {
+      font-family: 'Brush Script MT', cursive, Georgia, serif;
+      font-size: 2.8rem;
+      color: #fff;
+      margin: 0;
+      user-select: none;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    /* Kart container */
+    .card {
+      width: 350px;
+      perspective: 1500px;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      margin-top: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    /* İç kart - front ve back */
+    .card-inner {
+      position: relative;
+      width: 100%;
+      transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      border-radius: 20px;
+      overflow: visible;
+    }
+
+    .card.open .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Kart yüzleri */
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 2.5rem;
+      box-sizing: border-box;
+      user-select: text;
+    }
+
+    /* Ön yüz */
+    .card-front {
+      height: 220px;
+      background: #fff;
+      color: #2F6F61;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* Arka yüz - açılan kart içeriği */
+    .card-back {
+      background: #fff;
+      color: #2F6F61;
+      transform: rotateY(180deg);
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-height: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      overflow: visible;
+      height: auto;
+      white-space: pre-line;
+    }
+
+    /* Alt not */
+    .footer-note {
+      margin-top: 1.8rem;
+      color: #d6f3ec;
+      font-style: italic;
+      font-size: 0.9rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    /* Mobil duyarlılık */
+    @media (max-width: 400px) {
+      .card {
+        width: 280px;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+      }
+      .card-front {
+        font-size: 1.6rem;
+        height: 180px;
+        padding: 1.5rem 2rem;
+      }
+      .card-back {
+        font-size: 1rem;
+        padding: 1.5rem 2rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .back-button {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      header {
+        padding: 0.75rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="back-button">← Ana Sayfaya Dön</a>
+    <h1>Çiçeğim 🌺</h1>
+  </header>
+
+  <div class="card" id="card" title="Karta tıklayarak aç/kapa">
+    <div class="card-inner">
+      <div class="card-front">
+        Doğum Günün<br>Kutlu Olsun Kurban
+      </div>
+      <div class="card-back">
+        Beyzam,<br><br>
+        Öncelikle bu günü bize armağan eden anan babana enişten dileklerimi sunuyorum. <br>
+        Hayatıma kattığın tüm güzellikler için sana sonsuz teşekkür ederim kurban. Seninle konuşmaya başladığımdan beri inanılmaz bir mutluluk ve huzur var içimde amk.<br><br>
+        Seninle yaşamak, birlikte hayaller kurmak, gülmek, ağlamak bunlar hayatım boyunca paha biçemeyeceğim şeyler olacak.<br><br>
+        İyi ki doğdun, iyi ki varsın. Sen bu dünyadaki en değerli çiçeksin en önemlisi benim çiçeğimsin.<br><br>
+        Bugün, yarın ve her zaman yanında olacağım.<br><br>
+        Seni her şeyden çok seviyorum ve bunu chatGPT'ye yazdırmadığımı sen sormadan söylemek istiyorum.<br><br>
+        Tekrardan iyi doğdun canımıniçi
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script>
+    const card = document.getElementById('card');
+    card.addEventListener('click', () => {
+      card.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
